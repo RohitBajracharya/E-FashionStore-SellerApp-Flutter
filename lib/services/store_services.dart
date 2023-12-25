@@ -13,4 +13,9 @@ class StoreServices {
   static getChatMessages(docId) {
     return firestore.collection(chatsCollection).doc(docId).collection(messagesCollection).orderBy('created_on', descending: false).snapshots();
   }
+
+  //get all orders
+  static getOrders(uid) {
+    return firestore.collection(ordersCollection).where('vendors', arrayContains: uid).snapshots();
+  }
 }
