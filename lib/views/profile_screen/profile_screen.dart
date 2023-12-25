@@ -1,3 +1,5 @@
+import 'package:emart_seller/controllers/auth_controller.dart';
+import 'package:emart_seller/views/auth_screen/login_screen.dart';
 import 'package:emart_seller/views/messages_screen/messages_screen.dart';
 import 'package:emart_seller/views/profile_screen/edit_profilescreen.dart';
 import 'package:emart_seller/views/shop_screen/shop_settings_screen.dart';
@@ -25,7 +27,13 @@ class ProfileScreen extends StatelessWidget {
                 Icons.edit,
                 color: white,
               )),
-          TextButton(onPressed: () {}, child: normalText(text: logout))
+          TextButton(
+            onPressed: () async {
+              await Get.find<AuthController>().signout(context);
+              Get.offAll(() => const LoginScreen());
+            },
+            child: normalText(text: logout),
+          ),
         ],
       ),
       body: Column(children: [
