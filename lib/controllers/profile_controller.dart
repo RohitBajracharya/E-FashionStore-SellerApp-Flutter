@@ -66,4 +66,17 @@ class ProfileController extends GetxController {
       VxToast.show(context, msg: error.toString());
     });
   }
+
+  updateShop({shopname, shopaddress, shopmobile, shopwebsite, shopdescription}) async {
+    var store = firestore.collection(vendorsCollection).doc(currentUser!.uid);
+    await store.set({
+      'shop_name': shopname,
+      'shop_address': shopaddress,
+      'shope_mobile': shopmobile,
+      'shope_website': shopwebsite,
+      'shope_description': shopdescription,
+    }, SetOptions(merge: true));
+
+    isLoading(false);
+  }
 }
