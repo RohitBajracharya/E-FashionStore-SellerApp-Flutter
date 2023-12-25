@@ -8,5 +8,4 @@ const fontGrey = Color.fromRGBO(73, 73, 73, 1);
 const textFieldGrey = Color.fromRGBO(209, 209, 209, 1);
 const golden = Color.fromRGBO(248, 181, 91, 1);
 const red = Color.fromRGBO(255, 115, 115, 1.0);
-const Color redColor = Color.fromRGBO(230, 46, 4, 1);
 const green = Color.fromRGBO(52, 168, 83, 1.0);
