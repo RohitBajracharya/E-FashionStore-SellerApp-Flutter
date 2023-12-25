@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "526267361991",
+    "project_id": "emart-b30ae",
+    "storage_bucket": "emart-b30ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526267361991:android:a52fe81e44f385d17f2ce2",
+        "android_client_info": {
+          "package_name": "com.example.emart_seller"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA44kZQTZNzRWfv4m7uA7qPkz49E_BSFBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
