@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emart_seller/const/const.dart';
 
 class StoreServices {
@@ -17,6 +18,11 @@ class StoreServices {
   //get all orders
   static getOrders(uid) {
     return firestore.collection(ordersCollection).where('vendors', arrayContains: uid).snapshots();
+  }
+
+   static Future<int> countOrders(String vendorId) async {
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection('ordersCollection').where('vendors', arrayContains: vendorId).get();
+    return querySnapshot.size;
   }
 
   //get all products

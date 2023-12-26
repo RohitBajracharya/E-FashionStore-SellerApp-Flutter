@@ -69,18 +69,43 @@ class ProductsScreen extends StatelessWidget {
                                   menuBuilder: () => Column(
                                     children: List.generate(
                                       popupMenuIcons.length,
-                                      (index) => Padding(
-                                          padding: const EdgeInsets.all(12.0),
-                                          child: Row(
-                                            children: [
-                                              Icon(popupMenuIcons[index]),
-                                              10.widthBox,
-                                              normalText(
-                                                text: popupMenuTitles[index],
-                                                color: darkGrey,
-                                              )
-                                            ],
-                                          ).onTap(() {})),
+                                      (i) => Padding(
+                                        padding: const EdgeInsets.all(12.0),
+                                        child: Row(
+                                          children: [
+                                            Icon(
+                                              popupMenuIcons[i],
+                                              color: data[index]['featured_id'] == currentUser!.uid && i == 0 ? green : darkGrey,
+                                            ),
+                                            10.widthBox,
+                                            normalText(
+                                              text: data[index]['featured_id'] == currentUser!.uid && i == 0 ? 'Remove Featured' : popupMenuTitles[i],
+                                              color: darkGrey,
+                                            )
+                                          ],
+                                        ).onTap(
+                                          () {
+                                            switch (i) {
+                                              case 0:
+                                                if (data[index]['is_featured'] == true) {
+                                                  productController.removeFromFeatured(data[index].id);
+                                                  VxToast.show(context, msg: "Removed Featured Product");
+                                                } else {
+                                                  productController.addToFeatured(data[index].id);
+                                                  VxToast.show(context, msg: "Product Featured");
+                                                }
+                                                break;
+                                              case 1:
+                                                break;
+                                              case 2:
+                                                productController.removeProduct(data[index].id);
+                                                VxToast.show(context, msg: "Product Removed");
+                                                break;
+                                              default:
+                                            }
+                                          },
+                                        ),
+                                      ),
                                     ),
                                   ).box.white.rounded.width(200).make(),
                                   clickType: VxClickType.singleClick,
