@@ -66,7 +66,7 @@ class OrdersScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                      trailing: boldText(text: "\$ ${data[index]['total_amount']}", color: purpleColor, size: 16.0),
+                      trailing: boldText(text: "Rs. ${data[index]['total_amount']}", color: purpleColor, size: 16.0),
                     ).box.margin(const EdgeInsets.only(bottom: 4)).make();
                   }),
                 ),
